@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+        <aside id="sidebar-wrapper" class="border-end shadow-sm">
+            <div class="sidebar-content h-100 d-flex flex-column">
+                <div class="sidebar-heading px-4 py-4 border-bottom d-flex align-items-center gap-3">
+                    <div class="logo-icon bg-primary text-white rounded-3 p-2">
+                        <i class="fas fa-graduation-cap fa-lg"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0 fw-bold text-white">Student Portal</h5>
+                        <small class="text-white-50">Dashboard</small>
+                    </div>
+                </div>
+
+                <div class="px-4 py-4 border-bottom">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar rounded-circle bg-secondary d-flex align-items-center justify-content-center text-white fw-bold"
+                            id="userInitials">EM</div>
+                        <div class="overflow-hidden">
+                            <p class="mb-0 fw-medium text-white text-truncate" id="sidebarUserName">eman</p>
+                            <p class="mb-0 small text-white-50 text-truncate">Engineering</p>
+                        </div>
+                    </div>
+                </div>
+                <!--nave bare-->
+                <nav class="flex-grow-1 px-3 py-4">
+                    <ul class="nav flex-column gap-2">
+                        <li class="nav-item"><a href="#" class="nav-link active rounded-3"
+                                onclick="showSection('dashboard')"><i class="fas fa-th-large me-2"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link rounded-3" onclick="showSection('courses')"><i
+                                    class="fas fa-book-open me-2"></i> Courses</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link rounded-3"><i
+                                    class="fas fa-clipboard-list me-2"></i> Assignments</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link rounded-3"><i class="fas fa-user me-2"></i>
+                                Student Info</a></li>
+
+                    </ul>
+                </nav>
+
+                <div class="px-3 py-4 border-top">
+                    <button class="btn btn-dark-custom w-100 text-start mb-2" onclick="toggleDarkMode()">
+                        <i class="fas fa-moon me-2"></i> Dark Mode
+                    </button>
+                    <button class="btn btn-outline-danger w-100 text-start border-0" onclick="logout()">
+                        <i class="fas fa-sign-out-alt me-2"></i> Logout
+                    </button>
+
+                </div>
+            </div>
+        </aside>
+        <!--dashboard-->
+        <div id="page-content-wrapper" class="flex-grow-1 bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <button class="btn btn-primary rounded-3" id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </nav>
+
+            <div class="container-fluid px-4">
+
+                <div id="dashboard-section">
+                    <h2 class="fw-bold mb-1">Welcome back, <span id="welcomeName">eman</span>!</h2>
+                    <p class="text-muted mb-4">Here's an overview of your academic progress</p>
+
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-3">
+                            <div class="card card-stat card-blue h-100 border-0 shadow-sm rounded-4">
+                                <div class="card-body d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="text-muted mb-1 small fw-bold">Total Courses</p>
+                                        <h2 class="fw-bold mb-1">0</h2>
+                                        <small class="text-muted opacity-75">Enrolled</small>
+                                    </div>
+                                    <div class="icon-box icon-blue rounded-3"><i class="fas fa-book"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card card-stat card-green h-100 border-0 shadow-sm rounded-4">
+                                <div class="card-body d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="text-muted mb-1 small fw-bold">Completed</p>
+                                        <h2 class="fw-bold mb-1">0</h2>
+                                        <small class="text-muted opacity-75">Finished</small>
+                                    </div>
+                                    <div class="icon-box icon-green rounded-3"><i class="fas fa-check-double"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card card-stat card-yellow h-100 border-0 shadow-sm rounded-4">
+                                <div class="card-body d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="text-muted mb-1 small fw-bold">In Progress</p>
+                                        <h2 class="fw-bold mb-1">0</h2>
+                                        <small class="text-muted opacity-75">Ongoing</small>
+                                    </div>
+                                    <div class="icon-box icon-yellow rounded-3"><i class="far fa-clock"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card card-stat card-pink h-100 border-0 shadow-sm rounded-4">
+                                <div class="card-body d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <p class="text-muted mb-1 small fw-bold">Dropped</p>
+                                        <h2 class="fw-bold mb-1">0</h2>
+                                        <small class="text-muted opacity-75">Cancelled</small>
+                                    </div>
+                                    <div class="icon-box icon-pink rounded-3"><i class="fas fa-times"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+                    <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0 fw-bold text-dark">
+                            <i class="fas fa-clipboard-list text-primary me-2"></i> Upcoming Assignments
+                        </h6>
+                        <span class="badge bg-light text-dark rounded-pill fw-normal border">0 pending</span>
+                    </div>
+                    <div class="card-body py-5 text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-tasks fa-3x text-muted opacity-25"></i>
+                        </div>
+                        <h6 class="fw-medium text-dark mb-1">No upcoming assignments</h6>
+                        <p class="text-muted small mb-0">You're all caught up!</p>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 h-100">
+                            <div class="card-header bg-white border-0 py-3">
+                                <h6 class="mb-0 fw-bold text-dark">Course Progress</h6>
+                            </div>
+                            <div class="card-body d-flex align-items-center justify-content-center py-5">
+                                <p class="text-muted small">No courses added yet</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 h-100">
+                            <div class="card-header bg-white border-0 py-3">
+                                <h6 class="mb-0 fw-bold text-dark">Assignment Overview</h6>
+                            </div>
+                            <div class="card-body d-flex align-items-center justify-content-center py-5">
+                                <p class="text-muted small">No assignments added yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--courses section-->
+                <div id="courses-section" style="display:none;">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h2 class="fw-bold mb-1">Courses</h2>
+                            <p class="text-muted">Manage your enrolled courses</p>
+                        </div>
+                        <button class="btn btn-primary rounded-3" data-bs-toggle="modal" data-bs-target="#courseModal"
+                            onclick="prepareAddForm()">
+                            <i class="fas fa-plus me-2"></i> Add Course
+                        </button>
+                    </div>
+
+                    <div class="d-flex gap-2 mb-4 overflow-auto pb-2" id="statusFilters">
+                        <button class="btn btn-dark btn-sm rounded-pill px-3"
+                            onclick="filterCourses('all')">All</button>
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill px-3"
+                            onclick="filterCourses('in-progress')">In Progress</button>
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill px-3"
+                            onclick="filterCourses('completed')">Completed</button>
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill px-3"
+                            onclick="filterCourses('dropped')">Dropped</button>
+                    </div>
+
+                    <div class="row g-4" id="coursesGrid">
+                    </div>
+                </div>
+
+                <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 shadow rounded-4">
+                            <div class="modal-header border-0">
+                                <h5 class="modal-title fw-bold" id="modalTitle">Add New Course</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="courseForm">
+                                    <input type="hidden" id="courseId">
+                                    <div class="mb-3">
+                                        <label class="form-label small fw-bold">Course Name</label>
+                                        <input type="text" id="courseName" class="form-control" required
+                                            placeholder="e.g. Mathematics">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label small fw-bold">Instructor</label>
+                                            <input type="text" id="instructor" class="form-control" required>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label small fw-bold">Credit Hours</label>
+                                            <input type="number" id="credits" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label small fw-bold">Status</label>
+                                        <select id="courseStatus" class="form-select">
+                                            <option value="in-progress">In Progress</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="dropped">Dropped</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 rounded-3">Save Course</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
